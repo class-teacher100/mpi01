@@ -12,16 +12,19 @@ MPI (Message Passing Interface) training project demonstrating parallel computin
 # Compile
 mpicc -o hello_mpi hello_mpi.c
 mpicc -O3 -o pi_mpi pi_mpi.c
+mpicc -O3 -o pi_bbp_mpi pi_bbp_mpi.c -lgmp
 
 # Run with N processes
 mpirun -np 4 ./hello_mpi
 mpirun -np 4 ./pi_mpi
+mpirun -np 4 ./pi_bbp_mpi 100    # 100桁
+mpirun -np 4 ./pi_bbp_mpi 1000   # 1000桁
 ```
 
 ## Prerequisites
 
 ```bash
-sudo apt-get install -y openmpi-bin libopenmpi-dev
+sudo apt-get install -y openmpi-bin libopenmpi-dev libgmp-dev
 which mpicc mpirun  # verify installation
 ```
 
@@ -29,7 +32,9 @@ which mpicc mpirun  # verify installation
 
 - `hello_mpi.c` - Basic MPI program showing process initialization and rank identification
 - `pi_mpi.c` - Parallel pi calculation using numerical integration with MPI_Reduce for aggregation
+- `pi_bbp_mpi.c` - Arbitrary precision pi calculation using BBP formula with GMP library
 - `doc/mpi_setup.md` - Setup guide and MPI function reference
+- `doc/pi_bbp_mpi.md` - BBP formula implementation documentation (plan, implementation, verification)
 
 ## MPI Programming Patterns
 

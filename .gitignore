@@ -1,6 +1,7 @@
 # Compiled binaries
 hello_mpi
 pi_mpi
+pi_bbp_mpi
 *.o
 
 # Editor
