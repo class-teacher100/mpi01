@@ -1,0 +1,8 @@
+# Compiled binaries
+hello_mpi
+pi_mpi
+*.o
+
+# Editor
+*.swp
+*~
